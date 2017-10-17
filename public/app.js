@@ -200,8 +200,9 @@ var initialise = function () {
 
   var vancouverButton = document.getElementById("go-to-vancouver")
   vancouverButton.addEventListener("click", mainMap.moveToVancouver)
+
+  var locateMeButton = document.getElementById("where-am-i")
+  locateMeButton.addEventListener("click", mainMap.moveToCurrentLocation)
 }
-
-
 
 window.addEventListener("load", initialise)

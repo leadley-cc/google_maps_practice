@@ -7,6 +7,7 @@ var MapWrapper = function (container, coords, zoom, styles) {
   this.markers = []
   this.bounceMarkers = this.bounceMarkers.bind(this)
   this.moveToVancouver = this.moveToVancouver.bind(this)
+  this.moveToCurrentLocation = this.moveToCurrentLocation.bind(this)
 }
 
 MapWrapper.prototype = {
@@ -34,5 +35,13 @@ MapWrapper.prototype = {
 
   moveToVancouver: function () {
     this.googleMap.setCenter({ lat: 49.282729, lng: -123.120738 })
+  },
+
+  moveToCurrentLocation: function () {
+    navigator.geolocation.getCurrentPosition(pos => {
+      var coords = { lat: pos.coords.latitude, lng: pos.coords.longitude }
+      console.log(this)
+      this.googleMap.setCenter(coords)
+    })
   }
 }
