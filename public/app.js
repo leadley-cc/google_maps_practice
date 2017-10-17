@@ -18,6 +18,9 @@ var initialise = function () {
 
   var bounceButton = document.getElementById("bounce-markers")
   bounceButton.addEventListener("click", mainMap.bounceMarkers)
+
+  var vancouverButton = document.getElementById("go-to-vancouver")
+  vancouverButton.addEventListener("click", mainMap.moveToVancouver)
 }
 
 window.addEventListener("load", initialise)

@@ -1,10 +1,12 @@
-var MapWrapper = function (container, coords, zoom) {
+var MapWrapper = function (container, coords, zoom, styles) {
   this.googleMap = new google.maps.Map(container, {
     center: coords,
-    zoom: zoom
+    zoom: zoom,
+    styles: styles
   })
   this.markers = []
   this.bounceMarkers = this.bounceMarkers.bind(this)
+  this.moveToVancouver = this.moveToVancouver.bind(this)
 }
 
 MapWrapper.prototype = {
@@ -28,5 +30,9 @@ MapWrapper.prototype = {
     this.markers.forEach(
       marker => marker.setAnimation(google.maps.Animation.BOUNCE)
     )
+  },
+
+  moveToVancouver: function () {
+    this.googleMap.setCenter({ lat: 49.282729, lng: -123.120738 })
   }
 }
